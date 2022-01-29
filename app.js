@@ -7,6 +7,7 @@ var logger = require('morgan');
 const cors = require('cors')
 
 var loginRouter = require('./src/routes/login');
+var taskRouter = require('./src/routes/task')
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/', loginRouter);
+app.use('/task', taskRouter);
 
 mongoose.connect('mongodb://localhost', {
   user: 'root',

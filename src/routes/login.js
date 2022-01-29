@@ -4,12 +4,12 @@ const db = require('mongoose');
 const jwt = require('jsonwebtoken');
 let userSchema = require('../mongoDB/schema/UserSchema');
 
-router.get('/', async function(req, res, next) {
+router.post('/', async function(req, res, next) {
 
   try {
 
-    const email = req.query.email;
-    const password = req.query.password;
+    const email = req.body.email;
+    const password = req.body.password;
     const userModel = db.model('users', userSchema);
 
     let user = await userModel.findOne({workEmail: email});
