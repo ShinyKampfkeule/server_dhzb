@@ -62,9 +62,74 @@ async function writeDB() {
             }]
         })
 
+        const testUser2 = new User({
+            firstName: 'Max',
+            secondName: 'Mustermann',
+            workEmail: 'mustermann.max@dhzb.de',
+            password: 'VXieeeyi+aHgeGOIuGnzTyimTMvDfrhc7rAx/ZZ34G4=',
+            task: [{
+                title: "Mitarbeiterprofil aktualisieren",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Dokumente hochladen/einreichen",
+                status: true,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Ablauf erste Tage betrachten",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Ungelesene Nachrichten lesen",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            }]
+        })
+
+        const testUser3 = new User({
+            firstName: 'Erika',
+            middleName: 'Sophia',
+            secondName: 'Musterfrau',
+            workEmail: 'musterfrau.erika@dhzb.de',
+            password: 'VXieeeyi+aHgeGOIuGnzTyimTMvDfrhc7rAx/ZZ34G4=',
+            task: [{
+                title: "Mitarbeiterprofil aktualisieren",
+                status: true,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Dokumente hochladen/einreichen",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Kontakte betrachten",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            },
+            {
+                title: "Notfallkontakt hinterlegen",
+                status: false,
+                assignedOn: "29. Januar 2022",
+                setReminder: false
+            }]
+        })
+
         mongoose.connection.db.dropDatabase();
 
         await testUser1.save();
+        await testUser2.save();
+        await testUser3.save();
 
     } catch (e) {
         console.log(e);
