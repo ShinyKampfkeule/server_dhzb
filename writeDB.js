@@ -3,6 +3,8 @@ const UserSchema = require("./src/mongoDB/schema/UserSchema");
 const SpecialistDepartmentSchema = require("./src/mongoDB/schema/SpecialistDepartmentSchema");
 const DocumentSchema = require("./src/mongoDB/schema/DocumentSchema");
 const TaskSchema = require("./src/mongoDB/schema/TaskSchema")
+const ScheduleSchema = require("./src/mongoDB/schema/ScheduleSchema")
+const db = require("mongoose");
 
 async function writeDB() {
     try {
@@ -13,10 +15,13 @@ async function writeDB() {
             useUnifiedTopology: true
         })
 
+        mongoose.connection.db.dropDatabase();
+
         const User = mongoose.model('User', UserSchema);
         const SpecDepartment = mongoose.model('SpecDepartment', SpecialistDepartmentSchema);
         const Document = mongoose.model('Document', DocumentSchema)
         const Task = mongoose.model('Task', TaskSchema)
+        const Schedule = mongoose.model('Schedule', ScheduleSchema)
 
         const testUser1 = new User({
             firstName: 'Kevin',
@@ -125,11 +130,42 @@ async function writeDB() {
             }]
         })
 
-        mongoose.connection.db.dropDatabase();
-
         await testUser1.save();
         await testUser2.save();
         await testUser3.save();
+
+        const userModel = db.model('users', UserSchema);
+        let idKev = await userModel.findOne({firstName: 'Kevin'});
+        let idEri = await userModel.findOne({firstName: 'Erika'});
+        let idMax = await userModel.findOne({firstName: 'Max'});
+
+        const termin1 = new Schedule({
+            title: "Einführung",
+            start: new Date(2022, 1, 8, 9, 0),
+            end: new Date(2022, 1, 8, 10, 15),
+            room: "19.04",
+            attendees: [
+                `${idKev._id}`,
+                `${idEri._id}`,
+                `${idMax._id}`
+            ],
+            host: 'HR'
+        })
+
+        const termin2 = new Schedule({
+            title: "Besuch Chirurgie",
+            start: new Date(2022,1,8,10, 30),
+            end: new Date(2022,1,8,12, 0),
+            room: "08.15",
+            attendees: [
+                `${idKev._id}`,
+                `${idEri._id}`
+            ],
+            host: 'Chirurgie'
+        })
+
+        await termin1.save();
+        await termin2.save();
 
     } catch (e) {
         console.log(e);
