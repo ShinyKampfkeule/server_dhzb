@@ -17,10 +17,8 @@ router.post('/', async function(req, res, next) {
         let user = await userModel.findOne({_id: decoded});
         let schedules = await scheduleModel.find({attendees: decoded})
 
-        console.log(decoded)
-        console.log(schedules)
-
         const tasks = [];
+        const messages = [];
 
         user.task.map(e => {
             if (e.status === false) {
@@ -28,7 +26,13 @@ router.post('/', async function(req, res, next) {
             }
         });
 
-        res.json({task: tasks, schedule: schedules})
+        user.messages.map(e => {
+            if (e.status === "unread") {
+                messages.push(e)
+            }
+        })
+
+        res.json({task: tasks, schedule: schedules, messages: messages})
 
     }catch (e){
 
