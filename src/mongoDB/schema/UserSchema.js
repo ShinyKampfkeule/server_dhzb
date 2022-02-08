@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const DocumentSchema = require("./DocumentSchema")
 const EmergencyContactSchema = require("./EmergencyContactSchema")
 const SpecialistDepartmentSchema = require("./SpecialistDepartmentSchema")
+const TaskSchema = require("./TaskSchema")
+const MessageSchema = require("./MessageSchema")
 
 const Schema = mongoose.Schema;
 
@@ -26,7 +28,9 @@ const UserSchema = Schema({
     specialistDepartment: [SpecialistDepartmentSchema],
     workEmail: String,
     password: String,
-    taxNumber: String
+    taxNumber: String,
+    task: [TaskSchema],
+    messages: [MessageSchema]
 });
 
 module.exports = UserSchema
