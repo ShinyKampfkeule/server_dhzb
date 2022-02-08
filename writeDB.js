@@ -35,37 +35,43 @@ async function writeDB() {
                 title: "Mitarbeiterprofil aktualisieren",
                 status: true,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/profil"
             },
             {
                 title: "Dokumente hochladen/einreichen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/documents"
             },
             {
                 title: "Ablauf erste Tage betrachten",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/firstDays"
             },
             {
                 title: "Ungelesene Nachrichten lesen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/messages"
             },
             {
                 title: "Kontakte betrachten",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/contacts"
             },
             {
                 title: "Notfallkontakt hinterlegen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/contactsEmergency"
             }],
             messages: [{
                 title: "Teams-Link",
@@ -122,25 +128,29 @@ async function writeDB() {
                 title: "Mitarbeiterprofil aktualisieren",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/profil"
             },
             {
                 title: "Dokumente hochladen/einreichen",
                 status: true,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/documents"
             },
             {
                 title: "Ablauf erste Tage betrachten",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/firstDays"
             },
             {
                 title: "Ungelesene Nachrichten lesen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/messages"
             }],
             messages: [{
                 title: "Teams-Link",
@@ -198,25 +208,29 @@ async function writeDB() {
                 title: "Mitarbeiterprofil aktualisieren",
                 status: true,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/profil"
             },
             {
                 title: "Dokumente hochladen/einreichen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/documents"
             },
             {
                 title: "Kontakte betrachten",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/contacts"
             },
             {
                 title: "Notfallkontakt hinterlegen",
                 status: false,
                 assignedOn: "29. Januar 2022",
-                setReminder: false
+                setReminder: false,
+                link: "/contactsEmergency"
             }],
             messages: [{
                 title: "Teams-Link",
